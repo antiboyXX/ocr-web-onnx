@@ -1,0 +1,112 @@
+{
+  "models": {
+    "paddle-v4": {
+      "name": "PaddleOCR V4",
+      "description": "最新版本的PaddleOCR模型，支持中英文混合识别",
+      "detection": {
+        "modelPath": "./models/ch_PP-OCRv4_det_infer.onnx",
+        "inputSize": [640, 640],
+        "threshold": 0.3
+      },
+      "recognition": {
+        "modelPath": "./models/ch_PP-OCRv4_rec_infer.onnx",
+        "inputSize": [48, 320],
+        "threshold": 0.7
+      },
+      "supportedLanguages": ["ch_sim", "ch_tra", "en", "ch_en"],
+      "performance": "high",
+      "size": "large"
+    },
+    "paddle-v3": {
+      "name": "PaddleOCR V3",
+      "description": "稳定版本的PaddleOCR模型，速度快，准确性好",
+      "detection": {
+        "modelPath": "./models/ch_PP-OCRv3_det_infer.onnx",
+        "inputSize": [640, 640],
+        "threshold": 0.3
+      },
+      "recognition": {
+        "modelPath": "./models/ch_PP-OCRv3_rec_infer.onnx",
+        "inputSize": [48, 320],
+        "threshold": 0.7
+      },
+      "supportedLanguages": ["ch_sim", "ch_tra", "en"],
+      "performance": "medium",
+      "size": "medium"
+    },
+    "easyocr": {
+      "name": "EasyOCR",
+      "description": "多语言支持的OCR模型，适合复杂场景",
+      "detection": {
+        "modelPath": "./models/craft_mlt_25k.onnx",
+        "inputSize": [640, 640],
+        "threshold": 0.3
+      },
+      "recognition": {
+        "modelPath": "./models/crnn_vgg_bn.onnx",
+        "inputSize": [32, 128],
+        "threshold": 0.7
+      },
+      "supportedLanguages": ["ch_sim", "en", "multi"],
+      "performance": "medium",
+      "size": "small"
+    }
+  },
+  "languages": {
+    "ch_sim": {
+      "name": "中文简体",
+      "code": "zh-CN",
+      "dictPath": "./models/ppocr_keys_v1.txt"
+    },
+    "ch_tra": {
+      "name": "中文繁体",
+      "code": "zh-TW",
+      "dictPath": "./models/ppocr_keys_traditional.txt"
+    },
+    "en": {
+      "name": "English",
+      "code": "en-US",
+      "dictPath": "./models/ic15_dict.txt"
+    },
+    "ch_en": {
+      "name": "中英混合",
+      "code": "zh-CN,en-US",
+      "dictPath": "./models/ppocr_keys_v1.txt"
+    },
+    "multi": {
+      "name": "多语言",
+      "code": "multi",
+      "dictPath": "./models/multi_lang_dict.txt"
+    }
+  },
+  "executionProviders": {
+    "webgl": {
+      "name": "WebGL",
+      "description": "GPU加速推理，性能最佳",
+      "priority": 1,
+      "requirements": ["WebGL支持"]
+    },
+    "wasm": {
+      "name": "WebAssembly",
+      "description": "高兼容性，性能良好",
+      "priority": 2,
+      "requirements": ["WebAssembly支持"]
+    },
+    "cpu": {
+      "name": "CPU",
+      "description": "基础推理，兼容性最佳",
+      "priority": 3,
+      "requirements": []
+    }
+  },
+  "defaultSettings": {
+    "model": "paddle-v4",
+    "language": "ch_sim",
+    "detectionThreshold": 0.3,
+    "recognitionThreshold": 0.7,
+    "executionProvider": "webgl",
+    "enableBatch": true,
+    "batchSize": 8,
+    "enableCache": true
+  }
+} 

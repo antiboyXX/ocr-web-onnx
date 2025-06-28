@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Web ONNX - 智能图文分离系统</title>
+    <meta name="description" content="基于EasyOCR的Web端图文分离系统，支持中英文混合识别、文字区域分离、图像修复">
+    <meta name="keywords" content="OCR,图文分离,文字识别,图像修复,EasyOCR">
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components.css">
+    
+    <!-- 图标 (暂时移除，避免404错误) -->
+    <!-- <link rel="icon" type="image/x-icon" href="./assets/favicon.ico"> -->
+    
+    <!-- PWA支持 -->
+    <meta name="theme-color" content="#2196F3">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🔍 OCR Web ONNX</h1>
+                <span class="subtitle">智能图文分离系统</span>
+            </div>
+            <div class="nav-actions">
+                <span class="status-badge">🚀 在线服务</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主容器 -->
+    <main class="main-container">
+        <!-- 上传部分 -->
+        <section id="uploadSection" class="upload-section">
+            <div class="hero">
+                <h2>📤 上传图片开始识别</h2>
+                <p>支持图文分离、掩码创建、图像修复等完整功能</p>
+                
+                <!-- 功能特色 -->
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">✂️</div>
+                        <div class="feature-text">图文分离</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎭</div>
+                        <div class="feature-text">掩码创建</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <div class="feature-text">图像修复</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-text">可视化</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 上传区域 -->
+            <div class="upload-area" id="dropZone">
+                <div class="upload-content">
+                    <div class="upload-icon">📷</div>
+                    <p class="upload-text">拖拽图片到此处或点击选择</p>
+                    <p class="upload-hint">支持 JPG、PNG、GIF、WEBP 格式，最大10MB</p>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    <button class="btn-primary" id="uploadBtn">
+                        选择图片
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 处理部分 -->
+        <section id="processingSection" class="processing-section" style="display: none;">
+            <div class="processing-content">
+                <h2>🔄 正在处理图片...</h2>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%;"></div>
+                    </div>
+                    <div class="status-text" id="statusText">准备处理...</div>
+                </div>
+                
+                <!-- 处理步骤 -->
+                <div class="processing-steps">
+                    <div class="step-item">
+                        <div class="step-icon">📤</div>
+                        <div class="step-text">上传图片</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon">🔍</div>
+                        <div class="step-text">文字检测</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon">✂️</div>
+                        <div class="step-text">图文分离</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-icon">🎨</div>
+                        <div class="step-text">图像修复</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 结果部分 -->
+        <section id="resultsSection" class="results-section" style="display: none;">
+            <h2>🎉 处理完成</h2>
+            
+            <!-- 这里会通过JavaScript动态添加结果内容 -->
+            <!-- 结果统计 -->
+            <!-- 识别文字列表 -->
+            <!-- 可视化结果 -->
+            <!-- 图文分离结果 -->
+            <!-- 图像修复结果 -->
+            <!-- 下载功能 -->
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>OCR Web ONNX</h3>
+                <p>基于EasyOCR的智能图文分离系统</p>
+            </div>
+            <div class="footer-features">
+                <h4>核心功能</h4>
+                <ul>
+                    <li>🔍 中英文字识别</li>
+                    <li>✂️ 智能图文分离</li>
+                    <li>🎭 文字区域掩码</li>
+                    <li>🎨 图像修复算法</li>
+                    <li>📊 可视化结果</li>
+                    <li>📥 批量下载</li>
+                </ul>
+            </div>
+            <div class="footer-tech">
+                <h4>技术栈</h4>
+                <div class="tech-tags">
+                    <span class="tech-tag">EasyOCR</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 OCR Web ONNX. 图文分离专业版本.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript 文件 -->
+    <script src="./js/main.js"></script>
+</body>
+</html> 
